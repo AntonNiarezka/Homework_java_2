@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class PostBot {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Сколько коробок вы хотите отправить?");
+        int numBoxes = scanner.nextInt();
+
+        System.out.println("Сколько весит каждая коробка в киллограммах?");
+        double boxWeight = scanner.nextDouble();
+        scanner.nextLine(); // Дополнительный вызов nextLine() для пропуска символа новой строки
+
+        System.out.println("Введите имя получателя посылки:");
+        String recipientFirstName = scanner.nextLine();
+
+        System.out.println("Введите фамилию получателя посылки:");
+        String recipientLastName = scanner.nextLine();
+
+        System.out.println("Введите адрес получателя посылки:");
+        String recipientAddress = scanner.nextLine();
+
+        double totalWeight = numBoxes * boxWeight;
+
+        System.out.println("Получатель: \"" + recipientFirstName.toUpperCase() + " " + recipientLastName.toUpperCase() + "\"");
+        System.out.println("Адрес получателя: \"" + recipientAddress.toUpperCase() + "\"");
+        System.out.println("Вес посылки: " + totalWeight + " кг");
+
+        System.out.println("\nВсе верно? (Да/Нет)");
+        String isCorrect = scanner.nextLine();
+
+        if (isCorrect.equalsIgnoreCase("Да")) {
+            System.out.println("Бланк заказа успешно создан!");
+            System.out.println("Благодарим за использование наших услуг!");
+        } else {
+            System.out.println("Пожалуйста, исправьте вводимые данные и повторите попытку.");
+        }
+
+        scanner.close();
+    }
+}
